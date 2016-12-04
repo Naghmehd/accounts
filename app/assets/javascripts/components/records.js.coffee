@@ -1,10 +1,12 @@
-  # app/assets/javascripts/components/records.js.coffee
-
 @Records = React.createClass
   getInitialState: ->
     records: @props.data
   getDefaultProps: ->
     records: []
+  addRecord: (record) ->
+    records = @state.records.slice()
+    records.push record
+    @setState records: records
   render: ->
     React.DOM.div
       className: 'records'
